@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Payslip.DomainModel
 {
-    public class EmployeeName
+    public struct EmployeeName
     {
         public EmployeeName(string first, string last)
         {

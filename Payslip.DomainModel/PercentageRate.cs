@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Payslip.DomainModel
 {
-    public class PercentageRate
+    public struct PercentageRate
     {
         public PercentageRate(int percent)
         {
-
+            _percent = percent;
         }
         private int Percent
         {

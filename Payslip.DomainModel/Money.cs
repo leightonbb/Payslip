@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Payslip.DomainModel
 {
-    public class Money
+    public struct Money
     {
         public Money(decimal amount)
         {
