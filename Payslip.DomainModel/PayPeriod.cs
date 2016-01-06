@@ -25,5 +25,17 @@ namespace Payslip.DomainModel
         {
             return _monthNumber.GetHashCode();
         }
+
+        /// <summary>
+        /// Formating for the UI should be the reposibility of another class (in the presentation layer rather than in the 
+        /// domain model). This formatting is for convienance when working with and testing the domain model.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            var startDate = new DateTime(2015, _monthNumber, 1);
+            var endDate = startDate.AddMonths(1).AddDays(-1);
+            return startDate.ToString("dd MMMM") + " to " + endDate.ToString("dd MMMM");
+        }
     }
 }
