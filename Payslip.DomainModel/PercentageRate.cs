@@ -26,5 +26,10 @@ namespace Payslip.DomainModel
             }
         }
         int _percent;
+
+        internal decimal AsDecimal()
+        {
+            return Percent / 100.0m;
+        }
     }
 }

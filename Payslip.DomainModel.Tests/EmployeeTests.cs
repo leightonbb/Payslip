@@ -57,5 +57,31 @@ namespace Payslip.DomainModel.Tests
 
             Assert.AreEqual(new Money(2696), payslip.IncomeTax);
         }
+        [TestMethod]
+        public void Call_CreatePayslip_WithAnnualSalary120000AndSuperRateIs5_ReturnsPayslipWithSuper500()
+        {
+            var target = new Employee();
+            target.AnnualSalary = new AnnualSalary(120000);
+            target.SuperRate = new PercentageRate(5);
+
+            Payslip payslip = target.CreatePayslip(
+                new PayPeriod(3),
+                new TaxTable());
+
+            Assert.AreEqual(new Money(500), payslip.Super);
+        }
+        [TestMethod]
+        public void Call_CreatePayslip_WithAnnualSalary60050AndSuperRateIs9_ReturnsPayslipWithSuper450()
+        {
+            var target = new Employee();
+            target.AnnualSalary = new AnnualSalary(60050);
+            target.SuperRate = new PercentageRate(9);
+
+            Payslip payslip = target.CreatePayslip(
+                new PayPeriod(3),
+                new TaxTable());
+
+            Assert.AreEqual(new Money(450), payslip.Super);
+        }
     }
 }

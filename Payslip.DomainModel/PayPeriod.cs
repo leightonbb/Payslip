@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Payslip.DomainModel
 {
-    public class PayPeriod
+    public struct PayPeriod
     {
         public PayPeriod(int monthNumber)
         {

@@ -10,10 +10,10 @@ namespace Payslip.DomainModel.Tests
     [TestClass]
     public class PercentageRateTests
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-            var target = new PercentageRate(5);
-        }
+        //[TestMethod]
+        //public void Construct_DoesNotThrow()
+        //{
+        //    var target = new PercentageRate(5);
+        //}
     }
 }

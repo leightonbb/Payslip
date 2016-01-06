@@ -23,7 +23,16 @@ namespace Payslip.DomainModel
 
         public Payslip CreatePayslip(PayPeriod payPeriod, TaxTable taxTable)
         {
-            return new Payslip(payPeriod, AnnualSalary, taxTable);
+            var grossIncome = AnnualSalary.CalcMonthlyGrossAmount();
+            var incomeTax = taxTable.CalculateIncomeTax(AnnualSalary) / 12;
+            incomeTax = incomeTax.RoundToNearestDollar();
+            var super = (grossIncome * SuperRate).RoundToNearestDollar();
+
+            return new Payslip(
+                payPeriod,
+                grossIncome,
+                incomeTax,
+                super);
         }
     }
 }

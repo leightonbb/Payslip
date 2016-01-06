@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Payslip.DomainModel
 {
-    public class AnnualSalary
+    public struct AnnualSalary
     {
         public AnnualSalary(decimal annualAmountBeforeTax)
         {

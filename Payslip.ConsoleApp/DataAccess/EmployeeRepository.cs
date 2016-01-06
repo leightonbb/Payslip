@@ -21,6 +21,7 @@ namespace PayslipCodingExcercise.DataAccess
             var textReader = new StreamReader("DataToImport.csv");
             var csv = new CsvReader(textReader);
             csv.Configuration.HasHeaderRecord = false;
+            csv.Configuration.RegisterClassMap<CsvRowMap>();
 
             var records = csv.GetRecords<CsvRow>();
 
@@ -28,11 +29,14 @@ namespace PayslipCodingExcercise.DataAccess
             var result = new List<Employee>();
             foreach (var record in records)
             {
+                var superRateText = record.SuperRate.Trim('%');
+                var superRateAsDecimal = Int32.Parse(superRateText);
+
                 var employee = new Employee()
                 {
                     Name = new EmployeeName(record.FirstName, record.LastName),
                     AnnualSalary = new AnnualSalary(record.AnnualSalary),
-                    //SuperRate = new PercentageRate(record.SuperRate),
+                    SuperRate = new PercentageRate(superRateAsDecimal),
                 };
                 result.Add(employee);
             }

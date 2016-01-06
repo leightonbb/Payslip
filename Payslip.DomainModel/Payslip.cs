@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Payslip.DomainModel
 {
-    public class Payslip
+    public struct Payslip
     {
-        public Payslip(PayPeriod payPeriod, AnnualSalary annualSalary, TaxTable taxTable)
+        public Payslip(PayPeriod payPeriod, Money grossIncome, Money incomeTax, Money super)
         {
             PayPeriod = payPeriod;
-            GrossIncome = annualSalary.CalcMonthlyGrossAmount();
-            IncomeTax = taxTable.CalculateIncomeTax(annualSalary) / 12;
-            IncomeTax = IncomeTax.RoundToNearestDollar();
-            //IncomeTax = (new Money(922));
+            GrossIncome = grossIncome;
+            IncomeTax = incomeTax;
+
             NetIncome = GrossIncome - IncomeTax;
+            Super = super;
         }
 
         public PayPeriod PayPeriod { get; private set;}
@@ -31,6 +31,11 @@ namespace Payslip.DomainModel
             private set;
         }
         public Money NetIncome
+        {
+            get;
+            private set;
+        }
+        public Money Super
         {
             get;
             private set;

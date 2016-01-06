@@ -60,5 +60,16 @@ namespace Payslip.DomainModel
         {
             return new Money(left._amount / right);
         }
+
+        public static Money operator *(Money left, PercentageRate rate)
+        {
+            return left * rate.AsDecimal();
+        }
+
+        public static Money operator *(Money left, decimal rate)
+        {
+            return new Money(left._amount * rate);
+        }
+
     }
 }

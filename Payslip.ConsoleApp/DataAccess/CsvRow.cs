@@ -11,6 +11,7 @@ namespace PayslipCodingExcercise.DataAccess
         public string FirstName {get; set; }
         public string LastName { get; set; }
         public int AnnualSalary { get; set; }
+        //public int SuperRate { get; set; }
         public string SuperRate { get; set; }
         public string PaymentStartDate { get; set; }
     }

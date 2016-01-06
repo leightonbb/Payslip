@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaxTableTests.cs" />
     <Compile Include="PayPeriodTests.cs" />
+    <Compile Include="PayslipTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Payslip.DomainModel\Payslip.DomainModel.csproj">

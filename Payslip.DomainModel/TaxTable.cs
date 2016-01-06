@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Payslip.DomainModel.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace Payslip.DomainModel
 {
-    public class TaxTable
+    /// <summary>
+    /// This could be static, but i assume that it is simulating a stateful tax table, so i'll leave it as stateful to 
+    /// better simulate that.
+    /// </summary>
+    public class TaxTable :
+        AggregateRoot
     {
         public Money CalculateIncomeTax(AnnualSalary taxableIncome)
         {

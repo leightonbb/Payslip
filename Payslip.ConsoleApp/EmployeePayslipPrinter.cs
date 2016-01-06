@@ -26,6 +26,9 @@ namespace PayslipCodingExcercise
             lineBuilder.Append(",");
             lineBuilder.Append(paySlip.IncomeTax);
             lineBuilder.Append(",");
+            lineBuilder.Append(paySlip.NetIncome);
+            lineBuilder.Append(",");
+            lineBuilder.Append(paySlip.Super);
 
             return lineBuilder.ToString();
         }
