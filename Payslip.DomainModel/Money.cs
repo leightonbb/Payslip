@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Payslip.DomainModel
 {
+    /// <summary>
+    /// Helps to identify that a value is refering to money.
+    /// Provides convienient way of rounding money values.
+    /// Limits operations to ensure only money gets add / subtracted from other money.
+    /// </summary>
     public struct Money
     {
         public Money(decimal amount)
@@ -41,6 +46,19 @@ namespace Payslip.DomainModel
         public override string ToString()
         {
             return _amount.ToString();
+        }
+
+        public static Money operator + (Money left, Money right)
+        {
+            return new Money(left._amount + right._amount);
+        }
+        public static Money operator -(Money left, Money right)
+        {
+            return new Money(left._amount - right._amount);
+        }
+        public static Money operator /(Money left, decimal right)
+        {
+            return new Money(left._amount / right);
         }
     }
 }

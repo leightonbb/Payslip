@@ -33,9 +33,22 @@ namespace Payslip.DomainModel
         /// <returns></returns>
         public override string ToString()
         {
-            var startDate = new DateTime(2015, _monthNumber, 1);
-            var endDate = startDate.AddMonths(1).AddDays(-1);
-            return startDate.ToString("dd MMMM") + " to " + endDate.ToString("dd MMMM");
+            return StartDate.ToString("dd MMMM") + " to " + EndDate.ToString("dd MMMM");
+        }
+
+        public DateTime StartDate
+        {
+            get
+            {
+                return new DateTime(1900, _monthNumber, 1);
+            }
+        }
+        public DateTime EndDate
+        {
+            get
+            {
+                return StartDate.AddMonths(1).AddDays(-1);
+            }
         }
     }
 }

@@ -21,9 +21,9 @@ namespace Payslip.DomainModel
         public AnnualSalary AnnualSalary { get; set; }
         public PercentageRate SuperRate { get; set; }
 
-        public Payslip CreatePayslip(PayPeriod payPeriod)
+        public Payslip CreatePayslip(PayPeriod payPeriod, TaxTable taxTable)
         {
-            return new Payslip(payPeriod, AnnualSalary.CalcMonthlyGrossAmount());
+            return new Payslip(payPeriod, AnnualSalary, taxTable);
         }
     }
 }
