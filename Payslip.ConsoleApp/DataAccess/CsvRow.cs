@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Payslip.DomainModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,6 @@ namespace PayslipCodingExcercise.DataAccess
         public int AnnualSalary { get; set; }
         //public int SuperRate { get; set; }
         public string SuperRate { get; set; }
-        public string PaymentStartDate { get; set; }
+        public PayPeriod PaymentStartDate { get; set; }
     }
 }

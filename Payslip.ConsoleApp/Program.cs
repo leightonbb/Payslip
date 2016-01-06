@@ -17,18 +17,17 @@ namespace PayslipCodingExcercise
         static void Main(string[] args)
         {
 
-            var repo = new EmployeeRepository();
-            var printer = new EmployeePayslipPrinter();
+            var repo = new PayslipRequestRepository();
+            var payslipRequests = repo.GetAll();
 
-            var payPeriod = new PayPeriod(3);
+            var printer = new EmployeePayslipPrinter();
             var taxTable = new TaxTable();
 
-            var employees = repo.GetAll();
-            foreach (var employee in employees)
+            foreach (var request in payslipRequests)
             {
-                var paySlip = employee.CreatePayslip(payPeriod, taxTable);
+                var paySlip = request.CreatePayslip(taxTable);
 
-                printer.Print(employee, paySlip);
+                printer.Print(request.Employee, paySlip);
             }
 
             Console.ReadKey();

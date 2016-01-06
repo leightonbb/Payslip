@@ -15,7 +15,7 @@ namespace PayslipCodingExcercise.DataAccess
             Map(m => m.LastName);
             Map(m => m.AnnualSalary);
             Map(m => m.SuperRate).Index(3).TypeConverterOption("P");
-            Map(m => m.PaymentStartDate);
+            Map(m => m.PaymentStartDate).TypeConverter<PayPeriodConverter>();
         }
     }
 }

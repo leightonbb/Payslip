@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="DataAccess\CsvRow.cs" />
     <Compile Include="DataAccess\CsvRowMap.cs" />
+    <Compile Include="DataAccess\PayPeriodConverter.cs" />
+    <Compile Include="DataAccess\PayslipRequestRepository.cs" />
     <Compile Include="DataAccess\EmployeeRepository.cs" />
     <Compile Include="EmployeePayslipPrinter.cs" />
     <Compile Include="Program.cs" />

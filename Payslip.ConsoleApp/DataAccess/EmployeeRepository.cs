@@ -11,36 +11,18 @@ namespace PayslipCodingExcercise.DataAccess
 {
     class EmployeeRepository
     {
-        public EmployeeRepository()
+        internal static Employee CreateEmployee(CsvRow record)
         {
+            var superRateText = record.SuperRate.Trim('%');
+            var superRateAsDecimal = Int32.Parse(superRateText);
 
-        }
-
-        public IEnumerable<Employee> GetAll()
-        {
-            var textReader = new StreamReader("DataToImport.csv");
-            var csv = new CsvReader(textReader);
-            csv.Configuration.HasHeaderRecord = false;
-            csv.Configuration.RegisterClassMap<CsvRowMap>();
-
-            var records = csv.GetRecords<CsvRow>();
-
-            // I could have used link here to do the conversion, but i think spelling it out in this case makes it clearer...
-            var result = new List<Employee>();
-            foreach (var record in records)
+            var employee = new Employee()
             {
-                var superRateText = record.SuperRate.Trim('%');
-                var superRateAsDecimal = Int32.Parse(superRateText);
-
-                var employee = new Employee()
-                {
-                    Name = new EmployeeName(record.FirstName, record.LastName),
-                    AnnualSalary = new AnnualSalary(record.AnnualSalary),
-                    SuperRate = new PercentageRate(superRateAsDecimal),
-                };
-                result.Add(employee);
-            }
-            return result;
+                Name = new EmployeeName(record.FirstName, record.LastName),
+                AnnualSalary = new AnnualSalary(record.AnnualSalary),
+                SuperRate = new PercentageRate(superRateAsDecimal),
+            };
+            return employee;
         }
     }
 }
