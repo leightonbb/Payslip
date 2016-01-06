@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace PayslipCodingExcercise.DataAccess
 {
+    /// <summary>
+    /// Originally though that this would be the main repository, but discovered that the csv contained 
+    /// "PayslipRequests" rather than employees, so moved most of the contents out of this class.
+    /// </summary>
     class EmployeeRepository
     {
         internal static Employee CreateEmployee(CsvRow record)

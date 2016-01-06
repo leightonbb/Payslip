@@ -58,13 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Assumptions.rtf" />
+    <None Include="Documentation\Assumptions.rtf" />
     <None Include="DataToImport.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="InstructionsReceived.rtf" />
+    <None Include="Documentation\InstructionsReceived.rtf" />
     <None Include="packages.config" />
-    <None Include="TimeSpent.xlsx" />
+    <None Include="Documentation\TimeSpent.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Payslip.DomainModel\Payslip.DomainModel.csproj">

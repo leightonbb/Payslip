@@ -25,14 +25,13 @@ namespace Payslip.DomainModel
         {
             var grossIncome = AnnualSalary.CalcMonthlyGrossAmount();
             var incomeTax = taxTable.CalculateIncomeTax(AnnualSalary) / 12;
-            incomeTax = incomeTax.RoundToNearestDollar();
-            var super = (grossIncome * SuperRate).RoundToNearestDollar();
+            var super = grossIncome * SuperRate;
 
             return new Payslip(
                 payPeriod,
                 grossIncome,
-                incomeTax,
-                super);
+                incomeTax.RoundToNearestDollar(),
+                super.RoundToNearestDollar());
         }
     }
 }

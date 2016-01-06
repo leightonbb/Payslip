@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PayslipCodingExcercise.DataAccess
 {
+    /// <summary>
+    /// Controls more complex mapping from the csv file to the domain model types.
+    /// </summary>
     sealed class CsvRowMap : CsvClassMap<CsvRow>
     {
         public CsvRowMap()

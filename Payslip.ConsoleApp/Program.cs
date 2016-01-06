@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PayslipCodingExcercise
 {
-    // Create created this program primarily to help me focus on some tangible requirements when creating my test...
+    // I created this program primarily to help me focus on some tangible requirements when creating my tests...
 
     class Program
     {
@@ -25,9 +25,9 @@ namespace PayslipCodingExcercise
 
             foreach (var request in payslipRequests)
             {
-                var paySlip = request.CreatePayslip(taxTable);
+                var payslip = request.CreatePayslip(taxTable);
 
-                printer.Print(request.Employee, paySlip);
+                printer.Print(request.Employee, payslip);
             }
 
             Console.ReadKey();

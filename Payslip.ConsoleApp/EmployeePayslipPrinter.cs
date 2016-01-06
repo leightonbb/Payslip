@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PayslipCodingExcercise
 {
+    /// <summary>
+    /// Responsible for presenting the payslips on the console.
+    /// </summary>
     class EmployeePayslipPrinter
     {
         public void Print(Employee employee, Payslip.DomainModel.Payslip paySlip)
